@@ -1,28 +1,23 @@
-// mi_purifier.h
-#pragma once
+#include "mi_purifier.h"
+#include "esphome/core/log.h"
 
-#include "esphome/core/component.h"
-#include "esphome/components/uart/uart.h"
+namespace esphome
+{
+  namespace mi_purifier
+  {
 
-namespace esphome {
-namespace mi_purifier {
+    static const char *const TAG = "mi_purifier";
 
-class MiPurifier : public Component {
- public:
-  void set_uart(uart::UARTComponent *uart) { this->uart_ = uart; }
+    void MiPurifier::setup()
+    {
+      ESP_LOGI(TAG, "Setting up MiPurifier...");
+      // inicialización aquí
+    }
 
-  void setup() override {
-    // Inicialización
-  }
+    void MiPurifier::loop()
+    {
+      // lógica de lectura periódica
+    }
 
-  void loop() override {
-    // Lógica de lectura o control
-  }
-
- protected:
-  uart::UARTComponent *uart_;
-};
-
-}  // namespace mi_purifier
-}  // namespace esphome
-
+  } // namespace mi_purifier
+} // namespace esphome
